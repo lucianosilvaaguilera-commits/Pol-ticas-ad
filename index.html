@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de A&D · Ferronor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0C2C57;        /* fondo institucional */
+    --navy-deep:#081f3d;   /* sombras / pie */
+    --rail:#3C66A8;        /* azul vía */
+    --gold:#F2B807;        /* acento Ferronor */
+    --paper:#F6F7F9;       /* tarjetas */
+    --ink:#0C2C57;
+    --muted:#5C7193;
+    --line:rgba(255,255,255,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--navy);
+    color:#fff;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+    min-height:100vh;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+
+  /* ---------- Barra superior ---------- */
+  header.bar{border-bottom:1px solid var(--line)}
+  .bar-in{display:flex;align-items:center;justify-content:space-between;
+    padding:20px 0;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{display:flex;align-items:flex-end;gap:3px;height:26px}
+  .mark span{width:4px;background:var(--gold);border-radius:1px;display:block}
+  .mark span:nth-child(1){height:18px}
+  .mark span:nth-child(2){height:26px}
+  .mark span:nth-child(3){height:14px}
+  .mark span:nth-child(4){height:22px}
+  .wordmark{font-family:'Saira Condensed',sans-serif;font-weight:700;
+    letter-spacing:.14em;font-size:20px;text-transform:uppercase}
+  .tagline{font-size:12.5px;color:var(--muted);letter-spacing:.02em;
+    text-align:right}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:56px 0 30px}
+  .eyebrow{font-family:'Saira Condensed',sans-serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:.28em;font-size:13px;
+    color:var(--gold);margin-bottom:18px}
+  .hero h1{font-family:'Saira Condensed',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.01em;
+    font-size:clamp(44px,9vw,82px);line-height:.95}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p{max-width:48ch;margin-top:22px;color:#C9D6EA;font-size:16.5px}
+
+  /* ---------- Línea de documentos (vía férrea) ---------- */
+  .docs{padding:24px 0 72px}
+  .line{position:relative;margin-left:8px}
+  /* rieles */
+  .line::before,.line::after{content:"";position:absolute;top:0;bottom:0;
+    width:2px;background:var(--rail)}
+  .line::before{left:14px}
+  .line::after{left:22px}
+
+  .stop{position:relative;padding:11px 0 11px 64px}
+  /* durmiente (tie) detrás del nodo */
+  .stop .tie{position:absolute;left:8px;top:50%;transform:translateY(-50%);
+    width:20px;height:8px;background:var(--rail);border-radius:2px}
+  /* nodo / estación */
+  .node{position:absolute;left:10px;top:50%;transform:translateY(-50%);
+    width:18px;height:18px;border-radius:50%;background:var(--navy);
+    border:3px solid var(--gold);z-index:2}
+
+  .card{background:var(--paper);color:var(--ink);border-radius:14px;
+    padding:24px 26px;display:flex;align-items:center;
+    justify-content:space-between;gap:20px;flex-wrap:wrap;
+    box-shadow:0 18px 40px -24px rgba(0,0,0,.55);
+    transition:transform .18s ease, box-shadow .18s ease}
+  .card:hover{transform:translateY(-3px);
+    box-shadow:0 26px 52px -22px rgba(0,0,0,.6)}
+  .card .meta{min-width:200px;flex:1}
+  .card .idx{font-family:'Saira Condensed',sans-serif;font-weight:600;
+    font-size:12px;letter-spacing:.2em;color:var(--muted);
+    text-transform:uppercase}
+  .card h2{font-family:'Saira Condensed',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.01em;font-size:24px;
+    line-height:1.05;margin:6px 0 4px}
+  .card .desc{font-size:14px;color:var(--muted)}
+  .actions{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{font-family:'Saira Condensed',sans-serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:.08em;font-size:14px;
+    padding:11px 20px;border-radius:9px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+    border:2px solid transparent;transition:background .15s,border-color .15s,color .15s}
+  .btn-primary{background:var(--navy);color:#fff}
+  .btn-primary:hover{background:var(--rail)}
+  .btn-ghost{background:transparent;color:var(--navy);border-color:#C7D2E3}
+  .btn-ghost:hover{border-color:var(--navy)}
+  .btn svg{width:15px;height:15px}
+
+  /* ---------- Pie ---------- */
+  footer{border-top:1px solid var(--line);padding:32px 0 48px}
+  .foot-in{display:flex;justify-content:space-between;gap:16px;
+    flex-wrap:wrap;align-items:center}
+  .foot-in p{font-size:13px;color:var(--muted)}
+  .foot-in .co{font-family:'Saira Condensed',sans-serif;font-weight:600;
+    letter-spacing:.12em;text-transform:uppercase;color:#C9D6EA;font-size:14px}
+
+  :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+  @media (max-width:560px){
+    .tagline{display:none}
+    .hero{padding:48px 0 28px}
+    .card{padding:20px}
+    .actions{width:100%}
+    .btn{flex:1;justify-content:center}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .card,.card:hover{transition:none;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+  <header class="bar">
+    <div class="wrap bar-in">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <div class="wordmark">Ferronor</div>
+      </div>
+      <div class="tagline">Nuestro norte,<br>nuestros valores</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="eyebrow">Abastecimiento y Logística</div>
+      <h1>Política<br>de <em>A&amp;D</em></h1>
+      <p>Documentos vigentes de la política de Abastecimiento y Distribución de Ferronor S.A. Selecciona un documento para verlo o descargarlo.</p>
+    </section>
+
+    <section class="docs wrap">
+      <div class="line" id="lista"><!-- documentos inyectados por JS --></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot-in">
+      <p class="co">Ferronor S.A.</p>
+      <p>Huérfanos 587, oficina 301 · Santiago · Chile</p>
+    </div>
+  </footer>
+
+<script>
+  /* ============================================================
+     EDITA AQUÍ — LISTA DE DOCUMENTOS
+     ------------------------------------------------------------
+     Pega el nombre EXACTO de cada PDF (con mayúsculas y espacios
+     tal como queda el archivo en la carpeta). Una línea por
+     documento, entre comillas y separadas por coma.
+
+     El título se genera solo a partir del nombre del archivo.
+     Si quieres un título o descripción personalizados, usa la
+     forma con llaves (ver los 2 últimos ejemplos).
+     ============================================================ */
+  const DOCS = [
+    "01 Politica de A&D.pdf",
+    "02 Documento.pdf",
+    "03 Documento.pdf",
+    "04 Documento.pdf",
+    "05 Documento.pdf",
+    "06 Documento.pdf",
+    "07 Documento.pdf",
+    "08 Documento.pdf",
+    "09 Documento.pdf",
+    "10 Documento.pdf",
+    "11 Documento.pdf",
+    "12 Documento.pdf",
+    "13 Documento.pdf",
+    "14 Documento.pdf",
+    "15 Documento.pdf",
+    "16 Documento.pdf",
+    // Ejemplos con título/descripción personalizados:
+    { archivo: "17 Documento.pdf", titulo: "Título a tu gusto", descripcion: "Descripción opcional" },
+    { archivo: "18 Documento.pdf", titulo: "Otro título", descripcion: "" }
+  ];
+  /* ===================== FIN DE LA EDICIÓN ===================== */
+
+  // Convierte un nombre de archivo en un título legible
+  function tituloDesde(nombre){
+    return nombre.replace(/\.pdf$/i,"")
+                 .replace(/^[0-9]+[\s._-]*/,"")   // quita numeración inicial
+                 .replace(/[_-]+/g," ")
+                 .trim() || nombre;
+  }
+
+  const iconVer = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+  const iconBaja = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>';
+
+  const lista = document.getElementById('lista');
+  DOCS.forEach((item, i) => {
+    const d = (typeof item === "string") ? { archivo:item } : item;
+    const titulo = d.titulo && d.titulo.trim() ? d.titulo : tituloDesde(d.archivo);
+    const desc = (d.descripcion !== undefined) ? d.descripcion : "Documento vigente";
+    const n = String(i + 1).padStart(2, '0');
+    const stop = document.createElement('div');
+    stop.className = 'stop';
+    stop.innerHTML = `
+      <span class="tie" aria-hidden="true"></span>
+      <span class="node" aria-hidden="true"></span>
+      <article class="card">
+        <div class="meta">
+          <div class="idx">Documento ${n}</div>
+          <h2>${titulo}</h2>
+          ${desc ? `<div class="desc">${desc}</div>` : ``}
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="${encodeURI(d.archivo)}" target="_blank" rel="noopener">${iconVer} Ver documento</a>
+          <a class="btn btn-ghost" href="${encodeURI(d.archivo)}" download>${iconBaja} Descargar</a>
+        </div>
+      </article>`;
+    lista.appendChild(stop);
+  });
+</script>
+</body>
+</html>
